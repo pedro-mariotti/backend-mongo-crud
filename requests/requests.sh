@@ -22,16 +22,16 @@ curl --request POST \--url http://localhost:3000/users/register \--header 'Conte
 curl --request POST \--url https://backend-mongo-crud.vercel.app/users/login \--header 'Content-Type: application/json' \--data '{"username":"userTesteLogin","password":"senhatesteLogin"}'
 
 # (ERRO) Login com usuario invalido
-curl --request POST \--url https://backend-mongo-crud-a1qv.vercel.app/users/login \--header 'Content-Type: application/json' \--data '{"username":"userInvalid","password":"senhateste"}'
+curl --request POST \--url https://backend-mongo-crud.vercel.app/users/login \--header 'Content-Type: application/json' \--data '{"username":"userInvalid","password":"senhateste"}'
 
-# (ERRO) Login com senha invalida
-curl --request POST \--url https://backend-mongo-crud-a1qv.vercel.app/ \--header 'Content-Type: application/json' \--data '{"username":"userTesteLogin","password":"senhainvalida"}'
+# (ERRO) Login com senha invalida -- TINHA ESQUECIDO DE COLOCAR /USERS/LOGIN NO FIM DA URL
+curl --request POST \--url https://backend-mongo-crud-a1qv.vercel.app/users/login \--header 'Content-Type: application/json' \--data '{"username":"userTesteLogin","password":"senhainvalida"}'
 
 # (ERRO) Login com requisição mal formatada (sem senha)
 curl --request POST \--url https://backend-mongo-crud-a1qv.vercel.app/users/login \--header 'Content-Type: application/json' \--data '{"username":"userTesteLogin"}'
 
-# Acessando rota protegida
-curl --request GET \--url https://backend-mongo-crud-a1qv.vercel.app/protected \--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MTI2M2U0YTk3MTU1YzlmNDk0OGY4MSIsImlhdCI6MTc0NjAzNTczMCwiZXhwIjoxNzQ2MDM5MzMwfQ.gOsprjKcQjoqHFGjyFEWfsncOIrcbZZ_yyvCAsB7Lig'
+# Acessando rota protegida -- CORRIGINDO TOKEN
+curl --request GET \--url https://backend-mongo-crud.vercel.app/protected \--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MTI2ZTFlNWVlZjc3YzFhZTk3MDNhNyIsImlhdCI6MTc0NjA0MDk3NiwiZXhwIjoxNzQ2MDQ0NTc2fQ.aDXWrZsyvGZntHgS7TRM1f68StV1eqPm6Z6bsxTc8yc'
 
 # (ERRO) Acessando rota protegida sem token
 curl --request GET \--url https://backend-mongo-crud-a1qv.vercel.app/protected \--header 'Content-Type: application/json'
