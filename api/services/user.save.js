@@ -1,7 +1,7 @@
 import User from "../model/User.js";
 import bcrypt from "bcrypt";
 
-const saveUser = async(res, req) => {
+const saveUser = async(req, res) => {
     const { username, password, email } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     
@@ -11,7 +11,7 @@ const saveUser = async(res, req) => {
             password: hashedPassword,
             email
         });
-        console.log("User saved", savedUser);
+        console.log("User saved", savedUser.username);
         res.status(200).json({ message: "User registered successfully", user: savedUser.username });
     } catch (error) {
         console.error("Error saving user", error);
