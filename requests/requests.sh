@@ -16,16 +16,16 @@ curl --request POST \--url https://backend-mongo-crud-a1qv.vercel.app/users/regi
 
 # LOGIN ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Login com usuario generico
-curl --request POST \--url http://localhost:3000/users/login \--header 'Content-Type: application/json' \--data '{"username":"userTesteLogin","password":"senhateste"}'
+curl --request POST \--url https://backend-mongo-crud-a1qv.vercel.app/login \--header 'Content-Type: application/json' \--data '{"username":"userTesteLogin","password":"senhateste"}'
 
 # (ERRO) Login com usuario invalido
-curl --request POST \--url http://localhost:3000/users/login \--header 'Content-Type: application/json' \--data '{"username":"userInvalid","password":"senhateste"}'
+curl --request POST \--url https://backend-mongo-crud-a1qv.vercel.app/login \--header 'Content-Type: application/json' \--data '{"username":"userInvalid","password":"senhateste"}'
 
 # (ERRO) Login com senha invalida
-curl --request POST \--url http://localhost:3000/users/login \--header 'Content-Type: application/json' \--data '{"username":"userTesteLogin","password":"senhainvalida"}'
+curl --request POST \--url https://backend-mongo-crud-a1qv.vercel.app/ \--header 'Content-Type: application/json' \--data '{"username":"userTesteLogin","password":"senhainvalida"}'
 
 # Acessando rota protegida
-curl --request GET \--url http://localhost:3000/protected \--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MTI2M2U0YTk3MTU1YzlmNDk0OGY4MSIsImlhdCI6MTc0NjAzNTczMCwiZXhwIjoxNzQ2MDM5MzMwfQ.gOsprjKcQjoqHFGjyFEWfsncOIrcbZZ_yyvCAsB7Lig'
+curl --request GET \--url https://backend-mongo-crud-a1qv.vercel.app/protected \--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MTI2M2U0YTk3MTU1YzlmNDk0OGY4MSIsImlhdCI6MTc0NjAzNTczMCwiZXhwIjoxNzQ2MDM5MzMwfQ.gOsprjKcQjoqHFGjyFEWfsncOIrcbZZ_yyvCAsB7Lig'
 
 # (ERRO) Acessando rota protegida sem token
-curl --request GET \--url http://localhost:3000/protected \--header 'Content-Type: application/json'
+curl --request GET \--url https://backend-mongo-crud-a1qv.vercel.app/protected \--header 'Content-Type: application/json'
