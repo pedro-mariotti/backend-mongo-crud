@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import db from "./database/configdb.js";
 import User from "./model/User.js";
 import userRoutes from "./routes/user.route.js";
+import protectedRoutes from "./routes/protected.route.js";
 
 dotenv.config();
 db.connect()
@@ -16,6 +17,8 @@ app.use("/users", userRoutes);
 app.get("/", (req, res) => {
   res.send(`{message: "Hello from the API!"}`);
 });
+
+app.use("/protected", protectedRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
