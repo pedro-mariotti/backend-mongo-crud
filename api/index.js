@@ -1,7 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
+import db from "./database/configdb.js";
+import User from "./model/User.js";
+
 
 dotenv.config();
+db.connect()
 
 const app = express();
 const PORT = process.env.PORT || 5000;
