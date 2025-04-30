@@ -1,10 +1,8 @@
 import express from "express";
+import userController from "../controller/user.controller.js";
 
 const router = express.Router();
 
-router.post("/register", async (req, res) => {
-  console.log("Registering user", req.body);
-  res.status(201).json({ message: "User registered successfully" });
-});
+router.post("/register", userController.register);
 
 export default router;
